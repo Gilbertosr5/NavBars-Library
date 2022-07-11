@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Navbar</title>
+
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+        <style>
+            *{
+                font-family: Arial, Helvetica, sans-serif;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+
+            .navbar{
+                background: rgb(0,37,25);
+                background: linear-gradient(90deg, rgba(0,37,25,1) 0%, rgb(0, 82, 80) 50%, rgba(0,105,70,1) 100%);
+                width: 100%;
+                
+                display: flex;
+                justify-content: space-around;
+                user-select: none;
+            }
+
+            .logo{
+                color: white;
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                padding: 7.5px;
+                font-size: 26px;
+                font-weight: bold;
+            }
+
+            .logo img{
+                height: 40px;
+            }
+
+            .nav-list{
+                list-style: none;
+
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .nav-item{
+                padding: 15px;
+                transition: .5s;
+            }
+
+            .nav-item:hover{
+                background-color: rgb(1, 70, 68)
+            }
+
+            .nav-link{
+                color: white;
+                text-decoration: none;
+                transition: 0.5s;
+            }
+
+            .nav-link:hover{
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            }
+
+            .bars{
+                padding: 7.5px;
+                font-size: 26px;
+                color: white;
+                cursor: pointer;
+                transition: 0.4s;
+
+                display: none;
+            }
+
+            .bars:hover{
+                text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            }
+
+            @media(max-width:600px){
+                .nav-list{
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    top: 46px;
+                    background: rgb(0,37,25);
+                    background: linear-gradient(90deg, rgba(0,37,25,1) 0%, rgb(0, 82, 80) 50%, rgba(0,105,70,1) 100%);
+                    text-align: center;
+                    z-index: 1000;
+                    height: calc(100vh - 46px);
+                }
+
+                .nav-list.active{
+                    display: block;
+                }
+
+                .nav-item{
+                    border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+                }
+
+                .nav-item:hover{
+                    background-color: transparent;
+                }
+
+                .bars{
+                    display: block;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <div class="logo">Logo</div>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Products</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="bars" id="mobileBars">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+
+        <script>
+            const mobileBars = document.getElementById('mobileBars');
+
+            function toggleMenu(){
+                const navList = document.querySelector('.nav-list');
+                navList.classList.toggle('active')
+            }
+
+            mobileBars.addEventListener('click', toggleMenu)
+        </script>
+    </body>
+</html>
